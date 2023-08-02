@@ -28,11 +28,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Demo',
+      title: 'NJ Fashion',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'ชุดขาว แฟชั่นสายบุญ'),
+      home: const MyHomePage(title: '-NJ-'),
     );
   }
 }
@@ -257,15 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Divider(color: Colors.blue),
             Text(
-              'Temp: ' +
-                  '[$val2]' +
-                  ', ' +
-                  'Humidity: ' +
-                  '[$val3]' +
-                  ', ' +
-                  'EC: ' +
-                  '[$val1]' +
-                  ' ',
+              '----------',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Form(
@@ -495,7 +487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Color.fromRGBO(100, 34, 29, 1)),
                         ),
-                        child: Text('Open Google'),
+                        child: Text('Open G-Sheet'),
                       ),
                     ],
                   ),
