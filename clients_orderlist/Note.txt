@@ -1,113 +1,24 @@
-@_SUBCUBE=SUBCUBE, @_CLASS=CLASS, @_CUBE_NAME=CUBE_NAME, @_CUBE_NAME_TH=CUBE_NAME_TH, @_CL_ID=CL_ID, @_TEMPLATE_NAME=TEMPLATE_NAME, @_TEMPLATE_DETAIL=TEMPLATE_DETAIL, @_DEFAULT_TEMP=DEFAULT_TEMP
+---- TOTO -----------------
+For Debug APK : *** Need to go to Root Project folder
+>flutter build apk
+For Release APK :
+>flutter build apk --release
+For App Bundle :
+>flutter build appbundle
+==> Fix for build error
+-> flutter build apk --release --no-sound-null-safety
+
+--------------------------
+Launching lib\main.dart on Windows in debug mode...
+lib\main.dart:1
+Exception: Building with plugins requires symlink support.
+
+Please enable Developer Mode in your system settings. Run
+  start ms-settings:developers
+to open settings.
+Exited (sigterm)
+---------------------------
+-> flutter build apk --release --no-sound-null-safety
+---------------------------
 
 
-//dbo.UPDATE_DATE = DateTime.Now;
-                //dbo.UPDATE_USER = p_update_user;
-                //db.TB_PIVOT_TEMPLATE_FAV.SqlQuery("update TB_PIVOT_TEMPLATE_FAV set TEMPLATE_NAME = '" + p_template_name +
-                //    "' where CREATE_USER = '"+ p_user_id + "' and CUBE_NAME = '" + p_cl_id + "' and CUBE_NAME_TH = '123'");
-                //db.SaveChanges();
-				
-				var val2 = Number(e.parameter.val2);
-var val1 = e.parameter.val1;
-var val2 = e.parameter.val2;
-var val3 = e.parameter.val3;
-var val4 = e.parameter.val4;
-var val5 = e.parameter.val5;
-var val6 = e.parameter.val6;
-var val7 = e.parameter.val7;
-var val8 = e.parameter.val8;
-var val9 = e.parameter.val9;
-var val10 = e.parameter.val10;
-var val11 = e.parameter.val11;
-var val12 = e.parameter.val12;
-var val13 = e.parameter.val13;
-var val14 = e.parameter.val14;
-var val15 = e.parameter.val15;
-var val16 = e.parameter.val16;
-var val17 = e.parameter.val17;
-var val18 = e.parameter.val18;
-var val19 = e.parameter.val19;
-var val20 = e.parameter.val20;
-var val21 = e.parameter.val21;
-sheet.appendRow([val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val20, val21]);				
-
-
-https://script.google.com/macros/s/AKfycbxrJ5AUtCwsmFanrR2hp7lo8DXmaAcoATuESt_q-90Zao3uOrh-aSUyO8MR0QUuVtyeQQ/exec
-
-String val1 = "0";
-String val2 = "0";
-String val3 = "0";
-String val4 = "0";
-String val5 = "0";
-String val6 = "0";
-String val7 = "0";
-String val8 = "0";
-String val9 = "0";
-String val10 = "0";
-String val11 = "0";
-String val12 = "0";
-String val13 = "0";
-String val14 = "0";
-String val15 = "0";
-String val16 = "0";
-String val17 = "0";
-String val18 = "0";
-String val19 = "0";
-String val20 = "0";
-String val21 = "0";
-
-"${json['min_humid']}",
-
-"${json['val1']}",
-"${json['val2']}",
-"${json['val3']}",
-"${json['val4']}",
-"${json['val5']}",
-"${json['val6']}",
-"${json['val7']}",
-"${json['val8']}",
-"${json['val9']}",
-"${json['val10']}",
-"${json['val11']}",
-"${json['val12']}",
-"${json['val13']}",
-"${json['val14']}",
-"${json['val15']}",
-"${json['val16']}",
-"${json['val17']}",
-"${json['val18']}",
-"${json['val19']}",
-"${json['val20']}",
-"${json['val21']}",
-
-'val1': 'val1',
-'val1': 'val1',
-'val2': 'val2',
-'val3': 'val3',
-'val4': 'val4',
-'val5': 'val5',
-'val6': 'val6',
-'val7': 'val7',
-'val8': 'val8',
-'val9': 'val9',
-'val10': 'val10',
-'val11': 'val11',
-'val12': 'val12',
-'val13': 'val13',
-'val14': 'val14',
-'val15': 'val15',
-'val16': 'val16',
-'val17': 'val17',
-'val18': 'val18',
-'val19': 'val19',
-'val20': 'val20',
-'val21': 'val21'
-
-          .post(Uri.parse(URLApiByOne), body: feedbackForm.toJson())
-
-"val1" : "val1",
------------------
-AKfycbxrJ5AUtCwsmFanrR2hp7lo8DXmaAcoATuESt_q-90Zao3uOrh-aSUyO8MR0QUuVtyeQQ
-https://script.google.com/macros/s/AKfycbxrJ5AUtCwsmFanrR2hp7lo8DXmaAcoATuESt_q-90Zao3uOrh-aSUyO8MR0QUuVtyeQQ/exec
-
-var val2 = Number(e.parameter.val2);

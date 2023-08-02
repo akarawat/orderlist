@@ -20,6 +20,9 @@ class FeedbackForm {
   String val19;
   String val20;
   String val21;
+  String val22;
+  String val23;
+  String val24;
 
   //min_humid, max_humid, min_temp, max_temp, min_ec, max_ec
   FeedbackForm(
@@ -43,7 +46,10 @@ class FeedbackForm {
       this.val18,
       this.val19,
       this.val20,
-      this.val21);
+      this.val21,
+      this.val22,
+      this.val23,
+      this.val24);
 
   factory FeedbackForm.fromJson(dynamic json) {
     return FeedbackForm(
@@ -67,7 +73,10 @@ class FeedbackForm {
         "${json['val18']}",
         "${json['val19']}",
         "${json['val20']}",
-        "${json['val21']}");
+        "${json['val21']}",
+        "${json['val22']}",
+        "${json['val23']}",
+        "${json['val24']}");
   }
 
   // Method to make GET parameters.
@@ -92,6 +101,9 @@ class FeedbackForm {
         'val18': val18,
         'val19': val19,
         'val20': val20,
-        'val21': val21
+        'val21': val21,
+        'val22': val22,
+        'val23': val23,
+        'val24': val24
       };
 }

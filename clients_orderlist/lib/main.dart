@@ -7,11 +7,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:ecbox_ggsheet_toto/report_data.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl_browser.dart';
 import 'dart:async';
 import 'controller/form_controller.dart';
 import 'model/form_model.dart';
 import 'model/resdata.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: '-NJ-'),
+      home: const MyHomePage(title: '-NJ Orders Fill List-'),
     );
   }
 }
@@ -145,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     TextEditingController minval3idController = TextEditingController();
     TextEditingController maxval3idController = TextEditingController();
-    TextEditingController minval2Controller = TextEditingController();
+
     TextEditingController maxval2Controller = TextEditingController();
     TextEditingController minval1Controller = TextEditingController();
     TextEditingController maxval1Controller = TextEditingController();
@@ -155,9 +157,67 @@ class _MyHomePageState extends State<MyHomePage> {
     TextEditingController curval2Controller = TextEditingController();
     TextEditingController curval3Controller = TextEditingController();
     TextEditingController resDataController = TextEditingController();
+
+    TextEditingController txtFill = TextEditingController();
+    TextEditingController txtFillTmp = TextEditingController();
+    TextEditingController val1 = TextEditingController();
+    TextEditingController val3 = TextEditingController();
+    TextEditingController val4 = TextEditingController();
+    TextEditingController val5 = TextEditingController();
+    TextEditingController val6 = TextEditingController();
+    TextEditingController val7 = TextEditingController();
+    TextEditingController val8 = TextEditingController();
+    TextEditingController val9 = TextEditingController();
+    TextEditingController val10 = TextEditingController();
+    TextEditingController val11 = TextEditingController();
+    TextEditingController val12 = TextEditingController();
+    TextEditingController val13 = TextEditingController();
+    TextEditingController val14 = TextEditingController();
+    TextEditingController val15 = TextEditingController();
+    TextEditingController val16 = TextEditingController();
+    TextEditingController val17 = TextEditingController();
+    TextEditingController val18 = TextEditingController();
+    TextEditingController val19 = TextEditingController();
+    TextEditingController val20 = TextEditingController();
+    TextEditingController val21 = TextEditingController();
+    TextEditingController val22 = TextEditingController();
+    TextEditingController val23 = TextEditingController();
+    TextEditingController val24 = TextEditingController();
+
     minval1Controller.text = val1MinDef;
     maxval1Controller.text = val1MaxDef;
-    minval2Controller.text = _tmpMinDef;
+    // val3.text = _tmpMinDef;
+    txtFillTmp.text = "#ชื่อ สายบุญ \n" +
+        "999 ซอยหลังวัดดอน  ถนนเจริญกรุง63 \n" +
+        "แขวงยานนาวา \n" +
+        "เขตสาทร กทม. 10120  \n" +
+        "#โทร.081999999 \n" +
+        "#คอจีนกระดุมหน้า=48x1,กางเกงเล็ก=Mx1 \n" +
+        "#เพจปาณิสตาร์FB :  Narma";
+    val1.text = DateFormat('dd-MM-yyyy').format(DateTime.now());
+    val3.text = "";
+    val4.text = "";
+    val5.text = "";
+    val6.text = "";
+    val7.text = "0";
+    val8.text = "0";
+    val9.text = "0";
+    val10.text = "0";
+    val11.text = "0";
+    val12.text = "0";
+    val13.text = "0";
+    val14.text = "0";
+    val15.text = "0";
+    val16.text = "0";
+    val17.text = "0";
+    val18.text = "0";
+    val19.text = "";
+    val20.text = "";
+    val21.text = "";
+    val22.text = "";
+    val23.text = "";
+    val24.text = "";
+
     maxval2Controller.text = _tmpMaxDef;
     minval3idController.text = val3MinDef;
     maxval3idController.text = val3MaxDef;
@@ -183,7 +243,8 @@ class _MyHomePageState extends State<MyHomePage> {
       );
     }
 
-    void _submitForm() {
+    bool _submitForm() {
+      if (val3.text == "") return false;
       // Validate returns true if the form is valid, or false
       // otherwise.
       //if (minval3idController.text == "0" ||
@@ -195,27 +256,30 @@ class _MyHomePageState extends State<MyHomePage> {
         // If the form is valid, proceed.
         print(curval1Controller.text);
         FeedbackForm feedbackForm = FeedbackForm(
-            minval3idController.text,
-            maxval3idController.text,
-            minval2Controller.text,
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x",
-            "x");
+            val1.text,
+            "-",
+            val3.text,
+            val4.text,
+            val5.text,
+            val6.text,
+            val7.text,
+            val8.text,
+            val9.text,
+            val10.text,
+            val11.text,
+            val12.text,
+            val13.text,
+            val14.text,
+            val15.text,
+            val16.text,
+            val17.text,
+            val18.text,
+            val19.text,
+            val20.text,
+            val21.text,
+            val22.text,
+            val23.text,
+            val24.text);
 
         FormController formController = FormController();
         formController.submitForm(feedbackForm, (String response) {
@@ -228,9 +292,9 @@ class _MyHomePageState extends State<MyHomePage> {
             _showSnackbar("Error Occurred!");
           }
         });
-
-        flgUpdate = true;
+        val3.text = "";
       }
+      return flgUpdate;
     }
 
     void _launchURL() async {
@@ -243,22 +307,161 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     }
 
+    void resetForm(bool resetFill) {
+      if (resetFill) {
+        txtFill.text = "";
+      }
+      txtFillTmp.text = "#ชื่อ สายบุญ \n" +
+          "999 ซอยหลังวัดดอน  ถนนเจริญกรุง63 \n" +
+          "แขวงยานนาวา \n" +
+          "เขตสาทร กทม. 10120  \n" +
+          "#โทร.081999999 \n" +
+          "#คอจีนกระดุมหน้า=48x1,กางเกงเล็ก=Mx1 \n" +
+          "#เพจปาณิสตาร์FB :  Narma";
+      val1.text = DateFormat('dd-MM-yyyy').format(DateTime.now());
+      val3.text = "";
+      val4.text = "";
+      val5.text = "";
+      val6.text = "";
+      val7.text = "0";
+      val8.text = "0";
+      val9.text = "0";
+      val10.text = "0";
+      val11.text = "0";
+      val12.text = "0";
+      val13.text = "0";
+      val14.text = "0";
+      val15.text = "0";
+      val16.text = "0";
+      val17.text = "0";
+      val18.text = "0";
+      val19.text = "";
+      val20.text = "";
+      val21.text = "";
+      val22.text = "";
+      val23.text = "";
+      val24.text = "";
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Update data',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    minLines: 3,
+                    maxLines: null,
+                    controller: txtFill,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(labelText: 'ข้อความ'),
+                    style: TextStyle(
+                        fontStyle: FontStyle.normal, color: Colors.black),
+                  ),
+                ),
+              ],
             ),
-            Divider(color: Colors.blue),
-            Text(
-              '----------',
-              style: Theme.of(context).textTheme.headlineSmall,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          resetForm(false);
+                          var multiline = txtFill.text
+                              .trim()
+                              .replaceAll(RegExp(r'(\n){3,}'), "\n\n");
+                          multiline = multiline.replaceAll(RegExp(r'(\n)'), "");
+                          //var singleline = multiline.replaceAll(' ','');
+                          final tagName = multiline;
+
+                          final split = tagName.split('#');
+                          final Map<int, String> values = {
+                            for (int i = 0; i < split.length; i++) i: split[i]
+                          };
+                          //print(values);  // {0: grubs, 1:  sheep}
+
+                          final value1 = values[1]; //ที่อยู่
+                          final value2 = values[2]; //เบอร์
+                          final value7 = values[4]; //FB
+                          val3.text = value1.toString();
+                          val4.text = value2.toString();
+                          val7.text = value7.toString();
+                          //=> Model
+                          List<String> models = values[3].toString().split(',');
+                          for (var i = 0; i < models.length; i++) {
+                            var sModel = models[i].split('=');
+                            switch (sModel[0]) {
+                              case "กางเกงเล็ก":
+                                List<String> troSize =
+                                    sModel[1].toString().split('x');
+                                if (troSize[0] == "M")
+                                  val16.text = troSize[1];
+                                else if (troSize[0] == "L")
+                                  val17.text = troSize[1];
+                                else if (troSize[0] == "XL")
+                                  val18.text = troSize[1];
+                                break;
+                              default: //case อื่นๆ ตีเป็นเสื้อเลย
+                                val8.text = sModel[0];
+                                List<String> shiSize =
+                                    sModel[1].toString().split('x');
+
+                                if (shiSize[0] == "36")
+                                  val9.text = shiSize[1];
+                                else if (shiSize[0] == "40")
+                                  val10.text = shiSize[1];
+                                else if (shiSize[0] == "42")
+                                  val11.text = shiSize[1];
+                                else if (shiSize[0] == "44")
+                                  val12.text = shiSize[1];
+                                else if (shiSize[0] == "48")
+                                  val13.text = shiSize[1];
+                                else if (shiSize[0] == "52")
+                                  val14.text = shiSize[1];
+                                else if (shiSize[0] == "56")
+                                  val15.text = shiSize[1];
+
+                                break;
+                            }
+
+                            //print(models[i]);
+                          }
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color.fromRGBO(100, 34, 29, 1)),
+                        ),
+                        child: Text('ตรวจสอบ'),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          resetForm(true);
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.green),
+                        ),
+                        child: Text('Reset'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Form(
                 key: _formKey,
@@ -273,21 +476,140 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              controller: minval3idController,
+                              controller: val3,
+                              decoration: InputDecoration(labelText: 'ที่อยู่'),
                               keyboardType: TextInputType.number,
-                              decoration:
-                                  InputDecoration(labelText: 'Min Humidity'),
                               style: TextStyle(
-                                  fontStyle: FontStyle.italic,
+                                  fontStyle: FontStyle.normal,
+                                  color: Colors.black.withOpacity(0.6)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: val4,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: 'โทร'),
+                              style: TextStyle(
+                                  fontStyle: FontStyle.normal,
                                   color: Colors.black.withOpacity(0.6)),
                             ),
                           ),
                           Expanded(
                             child: TextFormField(
-                              controller: maxval3idController,
+                              controller: val7,
+                              keyboardType: TextInputType.text,
+                              decoration:
+                                  InputDecoration(labelText: 'Facebook'),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: val8,
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(labelText: 'Model'),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: val9,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '36'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val10,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '40'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val11,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '42'),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: val12,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '44'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val13,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '48'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val14,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '52'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val15,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: '56'),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text("กางเกง"),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val16,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: 'เล็ก M'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val17,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(labelText: 'ปกติ L'),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val18,
                               keyboardType: TextInputType.number,
                               decoration:
-                                  InputDecoration(labelText: 'Max Humidity'),
+                                  InputDecoration(labelText: 'พิเศษ XL'),
                             ),
                           ),
                         ],
@@ -298,105 +620,144 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              controller: minval2Controller,
-                              keyboardType: TextInputType.number,
-                              decoration:
-                                  InputDecoration(labelText: 'Min Temp'),
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.black.withOpacity(0.6)),
-                            ),
-                          ),
-                          Expanded(
-                            child: TextFormField(
-                              controller: maxval2Controller,
-                              keyboardType: TextInputType.number,
-                              decoration:
-                                  InputDecoration(labelText: 'Max Temp'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      //----Start Row
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: minval1Controller,
+                              controller: val19,
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
-                                  labelText: 'Min Electrin Conductor'),
+                                  labelText: '(เงินสด) ยอดเงิน'),
                               style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.black.withOpacity(0.6)),
-                            ),
-                          ),
-                          Expanded(
-                            child: TextFormField(
-                              controller: maxval1Controller,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                  labelText: 'Max Electric Conductor'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      //----Start Row
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: <Widget>[
-                                Text(""),
-                                Text(""),
-                                Text(
-                                  "Update current data",
-                                  style: TextStyle(
-                                      fontStyle: FontStyle.normal,
-                                      color: Colors.black.withOpacity(0.6)),
-                                ),
-                                Divider(color: Colors.black)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      //----Start Row
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: curval3Controller,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                  labelText: 'Humidity current'),
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
+                                  fontStyle: FontStyle.normal,
                                   color: Color.fromRGBO(247, 48, 13, 1)
                                       .withOpacity(0.6)),
                             ),
                           ),
                           Expanded(
                             child: TextFormField(
-                              controller: curval2Controller,
+                              controller: val20,
                               keyboardType: TextInputType.number,
                               decoration:
-                                  InputDecoration(labelText: 'Temp current'),
+                                  InputDecoration(labelText: '(เงินสด) ยอดโอน'),
+                              style: TextStyle(
+                                  fontStyle: FontStyle.normal,
+                                  color: Color.fromRGBO(247, 48, 13, 1)
+                                      .withOpacity(0.6)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: val21,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                  labelText: '(ปลายทาง) ยอดเงิน'),
+                              style: TextStyle(
+                                  fontStyle: FontStyle.normal,
+                                  color: Color.fromRGBO(26, 6, 211, 1)
+                                      .withOpacity(0.6)),
+                            ),
+                          ),
+                          Expanded(
+                              child: TextFormField(
+                            controller:
+                                val22, //editing controller of this TextField
+                            decoration: InputDecoration(
+                                icon: Icon(
+                                    Icons.calendar_today), //icon of text field
+                                labelText:
+                                    "(ปลายทาง) วันที่รับเงิน" //label text of field
+                                ),
+                            readOnly:
+                                true, //set it true, so that user will not able to edit text
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2000),
+                                  lastDate: DateTime(2101));
+
+                              if (pickedDate != null) {
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                val22.text = formattedDate;
+                              } else {
+                                val22.text = "";
+                                print("Date is not selected");
+                              }
+                            },
+                          )),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val23,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                  labelText: '(ปลายทาง) ยอดรับ'),
+                              style: TextStyle(
+                                  fontStyle: FontStyle.normal,
+                                  color: Color.fromRGBO(26, 6, 211, 1)
+                                      .withOpacity(0.6)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                              child: TextFormField(
+                            controller:
+                                val5, //editing controller of this TextField
+                            decoration: InputDecoration(
+                                icon: Icon(
+                                    Icons.calendar_today), //icon of text field
+                                labelText: "วันที่ส่ง" //label text of field
+                                ),
+                            readOnly:
+                                true, //set it true, so that user will not able to edit text
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2000),
+                                  lastDate: DateTime(2101));
+
+                              if (pickedDate != null) {
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                val5.text = formattedDate;
+                              } else {
+                                val5.text = "";
+                                print("Date is not selected");
+                              }
+                            },
+                          )),
+                          Expanded(
+                            child: TextFormField(
+                              controller: val6,
+                              keyboardType: TextInputType.number,
+                              decoration:
+                                  InputDecoration(labelText: 'เลขพัสดุ'),
                               style: TextStyle(
                                   fontStyle: FontStyle.italic,
                                   color: Color.fromARGB(255, 20, 160, 2)
                                       .withOpacity(0.6)),
                             ),
                           ),
+                        ],
+                      ),
+                      //----Start Row
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
                           Expanded(
                             child: TextFormField(
-                              controller: curval1Controller,
+                              controller: val24,
                               keyboardType: TextInputType.number,
                               decoration:
-                                  InputDecoration(labelText: 'EC current'),
+                                  InputDecoration(labelText: 'หมายเหตุ'),
                               style: TextStyle(
                                   fontStyle: FontStyle.italic,
                                   color: Color.fromARGB(255, 10, 109, 240)
@@ -415,12 +776,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: _submitForm,
+                        onPressed: () {
+                          _submitForm();
+                        },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Color.fromRGBO(100, 34, 29, 1)),
                         ),
-                        child: Text('Save'),
+                        child: Text('บันทึก'),
                       ),
                     ],
                   ),
@@ -429,15 +792,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: () {
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          // builder: (context) => MotorSetting()));
-                        },
+                        onPressed: _launchURL,
                         style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.green),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color.fromRGBO(100, 34, 29, 1)),
                         ),
-                        child: Text('Motor Settings'),
+                        child: Text('Open G-Sheet'),
                       ),
                     ],
                   ),
@@ -455,76 +815,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            //----Start Row
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        '$tDisplay',
-                        style: TextStyle(
-                            fontStyle: FontStyle.normal,
-                            color: Colors.black.withOpacity(0.6)),
-                      ),
-                      Divider(color: Colors.black)
-                    ],
+                  child: TextFormField(
+                    minLines: 3,
+                    maxLines: null,
+                    controller: txtFillTmp,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(labelText: 'ตัวอย่าง'),
+                    style: TextStyle(
+                        fontStyle: FontStyle.normal, color: Colors.black),
                   ),
                 ),
-              ],
-            ),
-            //----Start Row for button menu
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      ElevatedButton(
-                        onPressed: _launchURL,
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(100, 34, 29, 1)),
-                        ),
-                        child: Text('Open G-Sheet'),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      ElevatedButton(
-                        onPressed: () {
-                          _fetchData();
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.green),
-                        ),
-                        child: Text('Get data'),
-                      ),
-                    ],
-                  ),
-                ),
-                // Expanded(
-                //   child: Column(
-                //     children: <Widget>[
-                //       ElevatedButton(
-                //         onPressed: () {
-                //           Navigator.of(context).push(MaterialPageRoute(
-                //               builder: (context) => Report()));
-                //         },
-                //         style: ButtonStyle(
-                //           backgroundColor: MaterialStateProperty.all<Color>(
-                //               Color.fromRGBO(100, 34, 29, 1)),
-                //         ),
-                //         child: Text('Report'),
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ],

@@ -6,9 +6,11 @@ import '../model/form_model.dart';
 /// HTTP GET request on Google App Script Web URL and parses response and sends result callback.
 class FormController {
   // Google App Script Web URL.
-  //Clients Order List URL = https://docs.google.com/spreadsheets/d/1d45iRKjPv-Dwj2jNaPHePqUgQ6dqVbWHydOaXkpUUDM/edit#gid=0
+  //V100 Can add data: AKfycbwqbpHyvJZM63saBauYLlH_Zrh43I-aAtDAzh3ytUaVl6W2T9_CWtyMrnOsIcU97ASDZw
+  //V101 Add Items insert: AKfycbysXkSj5PF_gSa_2_UR8EAxajHwZNJUVZgsytcOkRK7AeDDxJ7j002h1RFdf8tXPkgb6g
+  //V102 Add กาเกง: AKfycbwQb8f44KKivwaVIedyqjfgjm8DdMNiobqCaeti5pb0MFOE6Ebj_QHJJY_ybrCkHBRM7w
   static const String URLApiByOne =
-      "https://script.google.com/macros/s/AKfycbwqbpHyvJZM63saBauYLlH_Zrh43I-aAtDAzh3ytUaVl6W2T9_CWtyMrnOsIcU97ASDZw/exec"; // เปลี่ยนทุกครั้งที่มีการ Deploy
+      "https://script.google.com/macros/s/AKfycbwQb8f44KKivwaVIedyqjfgjm8DdMNiobqCaeti5pb0MFOE6Ebj_QHJJY_ybrCkHBRM7w/exec"; // เปลี่ยนทุกครั้งที่มีการ Deploy
   static const String URLGoogle =
       'https://docs.google.com/spreadsheets/d/1wYjELha9sKd7hqW9QIfonXh7_FNb8TLAvPDu6qdTo_o/'; //ไม่ต้องเปลี่ยน
   // Success Status Message
@@ -50,7 +52,49 @@ class FormController {
           feedbackForm.val9 +
           "&" +
           "val10=" +
-          feedbackForm.val10;
+          feedbackForm.val10 +
+          "&" +
+          "val11=" +
+          feedbackForm.val11 +
+          "&" +
+          "val12=" +
+          feedbackForm.val12 +
+          "&" +
+          "val13=" +
+          feedbackForm.val13 +
+          "&" +
+          "val14=" +
+          feedbackForm.val14 +
+          "&" +
+          "val15=" +
+          feedbackForm.val15 +
+          "&" +
+          "val16=" +
+          feedbackForm.val16 +
+          "&" +
+          "val17=" +
+          feedbackForm.val17 +
+          "&" +
+          "val18=" +
+          feedbackForm.val18 +
+          "&" +
+          "val19=" +
+          feedbackForm.val19 +
+          "&" +
+          "val20=" +
+          feedbackForm.val20 +
+          "&" +
+          "val21=" +
+          feedbackForm.val21 +
+          "&" +
+          "val22=" +
+          feedbackForm.val22 +
+          "&" +
+          "val23=" +
+          feedbackForm.val23 +
+          "&" +
+          "val24=" +
+          feedbackForm.val24;
       await http.get(Uri.parse(txtParams)).then((response) {
         Map<String, dynamic> jdata =
             convert.jsonDecode(response.body)['status'];
